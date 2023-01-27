@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from "axios"
 import { useNavigate, Link } from 'react-router-dom'
 
@@ -14,17 +14,17 @@ function Signup() {
 
     try {
 
-        await axios.post("http:??//localhost:8000/signup", {
+        await axios.post("http://localhost:8000/signup", {
             username,password
         })
 
         .then(res => {  
-            if(res.datos="exist") {
+            if(res.datos==="exist") {
                 alert("Usuario ya existe")
                // history("/home",{state:{id:username}})
             } 
             
-            else if(res.datos="notexist") {
+            else if(res.datos==="notexist") {
                 history("/home",{state:{id:username}})
             } 
         })

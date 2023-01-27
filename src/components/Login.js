@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import axios from "axios"
 import { useNavigate, Link } from 'react-router-dom'
 
@@ -15,14 +15,15 @@ function Login() {
 
     try {
 
-        await axios.post("http:??//localhost:8000/", 
-        username,password)
+        await axios.post("http://localhost:8000/",{ 
+        username,password
+        })
         .then(res => {  
-            if(res.datos="exist") {
+            if(res.datos==="exist") {
                 history("/home",{state:{id:username}})
             } 
             
-            else if(res.datos="notexist") {
+            else if(res.datos==="notexist") {
                 alert('Usuario no esta registrado')
             } 
         })
